@@ -6,10 +6,10 @@ const Home = () => {
   return (
     <motion.main
       className="page-shell"
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 18 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -30 }}
-      transition={{ duration: 0.45 }}
+      exit={{ opacity: 0, y: -18 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
     >
       <section className="hero-panel">
         <div className="hero-copy">
