@@ -1,16 +1,9 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { profile, projects, skillGroups } from "../content";
+import { TransitionLink } from "../components/TransitionLink";
 
 const Home = () => {
   return (
-    <motion.main
-      className="page-shell"
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -30 }}
-      transition={{ duration: 0.45 }}
-    >
+    <main className="page-shell">
       <section className="hero-panel">
         <div className="hero-copy">
           <h1>{profile.name}</h1>
@@ -23,16 +16,16 @@ const Home = () => {
             <span>{profile.education.cgpa}</span>
           </div>
 
-          <div className="hero-actions">
-            <Link className="primary-link" to="/superpowers">
+        <div className="hero-actions">
+            <TransitionLink className="primary-link" to="/superpowers">
               View Skills
-            </Link>
-            <Link className="ghost-link" to="/missions">
+            </TransitionLink>
+            <TransitionLink className="ghost-link" to="/missions">
               View Project
-            </Link>
-            <Link className="ghost-link" to="/contact">
+            </TransitionLink>
+            <TransitionLink className="ghost-link" to="/contact">
               Contact
-            </Link>
+            </TransitionLink>
           </div>
         </div>
 
@@ -55,7 +48,7 @@ const Home = () => {
           </ul>
         </div>
       </section>
-    </motion.main>
+    </main>
   );
 };
 

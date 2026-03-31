@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { internships, profile, skillGroups } from "../content";
+import { TransitionLink } from "../components/TransitionLink";
 
 const Superpowers = () => {
   const primarySkillGroups = skillGroups.slice(0, 3);
@@ -10,13 +9,7 @@ const Superpowers = () => {
   );
 
   return (
-    <motion.main
-      className="page-shell"
-      initial={{ opacity: 0, x: 40 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -40 }}
-      transition={{ duration: 0.45 }}
-    >
+    <main className="page-shell">
       <section className="section-panel">
         <div className="section-heading">
           <p className="eyebrow">Skill</p>
@@ -41,11 +34,11 @@ const Superpowers = () => {
             </article>
           ))}
 
-          <article className="info-card">
+          <article className="info-card compact-skill-card">
             <h2>Database and Programming Languages</h2>
 
             {databaseGroup ? (
-              <>
+              <div className="compact-skill-section">
                 <p className="card-kicker">Database</p>
                 <div className="chip-wrap">
                   {databaseGroup.items.map((item) => (
@@ -54,11 +47,11 @@ const Superpowers = () => {
                     </span>
                   ))}
                 </div>
-              </>
+              </div>
             ) : null}
 
             {languageGroup ? (
-              <>
+              <div className="compact-skill-section">
                 <p className="card-kicker skill-subtitle">Programming Languages</p>
                 <div className="chip-wrap">
                   {languageGroup.items.map((item) => (
@@ -67,7 +60,7 @@ const Superpowers = () => {
                     </span>
                   ))}
                 </div>
-              </>
+              </div>
             ) : null}
           </article>
         </div>
@@ -98,12 +91,12 @@ const Superpowers = () => {
         </div>
 
         <div className="section-actions">
-          <Link className="primary-link" to="/missions">
+          <TransitionLink className="primary-link" to="/missions">
             Explore Project
-          </Link>
+          </TransitionLink>
         </div>
       </section>
-    </motion.main>
+    </main>
   );
 };
 

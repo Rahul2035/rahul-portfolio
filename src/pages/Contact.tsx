@@ -1,16 +1,9 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { profile } from "../content";
+import { TransitionLink } from "../components/TransitionLink";
 
 const Contact = () => {
   return (
-    <motion.main
-      className="page-shell"
-      initial={{ opacity: 0, x: 40 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -40 }}
-      transition={{ duration: 0.45 }}
-    >
+    <main className="page-shell">
       <section className="section-panel contact-panel">
         <div className="section-heading">
           <p className="eyebrow">Contact</p>
@@ -58,15 +51,15 @@ const Contact = () => {
         </div>
 
         <div className="section-actions">
-          <Link className="ghost-link" to="/">
+          <TransitionLink className="ghost-link" to="/">
             Back Home
-          </Link>
-          <Link className="primary-link" to="/missions">
+          </TransitionLink>
+          <TransitionLink className="primary-link" to="/missions">
             See Work
-          </Link>
+          </TransitionLink>
         </div>
       </section>
-    </motion.main>
+    </main>
   );
 };
 

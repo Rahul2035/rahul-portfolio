@@ -1,32 +1,31 @@
 import {
   BrowserRouter,
-  NavLink,
   Route,
   Routes,
   useLocation,
 } from "react-router-dom";
 import { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
 import Superpowers from "./pages/Superpowers";
 import Missions from "./pages/Missions";
 import Contact from "./pages/Contact";
 import { profile } from "./content";
+import { TransitionNavLink } from "./components/TransitionLink";
 
 function SiteNav() {
   return (
     <header className="site-header">
-      <NavLink to="/" className="brand-mark">
+      <TransitionNavLink to="/" className="brand-mark">
         {profile.name}
-      </NavLink>
+      </TransitionNavLink>
 
       <nav className="site-nav">
-        <NavLink to="/" end>
+        <TransitionNavLink to="/" end>
           Home
-        </NavLink>
-        <NavLink to="/superpowers">Skill</NavLink>
-        <NavLink to="/missions">Project</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+        </TransitionNavLink>
+        <TransitionNavLink to="/superpowers">Skill</TransitionNavLink>
+        <TransitionNavLink to="/missions">Project</TransitionNavLink>
+        <TransitionNavLink to="/contact">Contact</TransitionNavLink>
       </nav>
     </header>
   );
@@ -46,14 +45,12 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/superpowers" element={<Superpowers />} />
-        <Route path="/missions" element={<Missions />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </AnimatePresence>
+    <Routes location={location}>
+      <Route path="/" element={<Home />} />
+      <Route path="/superpowers" element={<Superpowers />} />
+      <Route path="/missions" element={<Missions />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
   );
 }
 

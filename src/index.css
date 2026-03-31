@@ -1,17 +1,17 @@
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  --bg: #05070d;
-  --bg-soft: rgba(12, 19, 33, 0.82);
-  --panel: rgba(15, 24, 40, 0.84);
-  --panel-strong: rgba(21, 32, 54, 0.92);
-  --text: #eef3ff;
-  --muted: #b6c3dd;
+  --bg: #ffffff;
+  --bg-soft: rgba(255, 255, 255, 0.92);
+  --panel: rgba(248, 250, 252, 0.94);
+  --panel-strong: rgba(241, 245, 249, 0.98);
+  --text: #111827;
+  --muted: #475569;
   --red: #ff304f;
   --red-soft: rgba(255, 48, 79, 0.15);
   --blue: #5bc0eb;
-  --border: rgba(255, 255, 255, 0.08);
-  --shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
+  --border: rgba(15, 23, 42, 0.08);
+  --shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
 }
 
 * {
@@ -25,14 +25,20 @@ body,
   min-height: 100%;
   width: 100%;
   background:
-    radial-gradient(circle at top, rgba(255, 48, 79, 0.16), transparent 25%),
-    radial-gradient(circle at 80% 20%, rgba(91, 192, 235, 0.16), transparent 22%),
-    linear-gradient(180deg, #09101d 0%, #04060a 100%);
+    radial-gradient(circle at top, rgba(255, 48, 79, 0.08), transparent 25%),
+    radial-gradient(circle at 80% 20%, rgba(91, 192, 235, 0.1), transparent 22%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
   color: var(--text);
 }
 
 body {
   overflow-x: hidden;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 180ms;
+  animation-timing-function: ease;
 }
 
 a {
@@ -60,7 +66,7 @@ a {
   gap: 16px;
   padding: 20px clamp(20px, 4vw, 56px);
   backdrop-filter: blur(18px);
-  background: rgba(5, 7, 13, 0.62);
+  background: rgba(255, 255, 255, 0.78);
   border-bottom: 1px solid var(--border);
 }
 
@@ -176,9 +182,9 @@ a {
 .hero-chips span,
 .skill-chip {
   padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(15, 23, 42, 0.1);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.85);
   color: var(--text);
 }
 
@@ -203,13 +209,13 @@ a {
 .primary-link {
   background: linear-gradient(135deg, #ff304f, #ff6b35);
   color: white;
-  box-shadow: 0 16px 32px rgba(255, 48, 79, 0.24);
+  box-shadow: none;
 }
 
 .ghost-link,
 .contact-link {
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.88);
 }
 
 .primary-link:hover,
@@ -225,7 +231,7 @@ a {
   padding: 24px;
   border-radius: 24px;
   border: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(22, 31, 49, 0.95), var(--panel-strong));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), var(--panel-strong));
 }
 
 .hero-card h2,
@@ -261,7 +267,7 @@ a {
 
 .stat-list strong {
   font-size: 1.8rem;
-  color: white;
+  color: var(--text);
 }
 
 .skills-grid,
@@ -294,6 +300,23 @@ a {
 
 .skills-grid .info-card h2 {
   min-height: 88px;
+}
+
+.skills-grid .compact-skill-card h2 {
+  min-height: 0;
+  margin-bottom: 20px;
+}
+
+.compact-skill-section + .compact-skill-section {
+  margin-top: 18px;
+}
+
+.compact-skill-section .card-kicker {
+  margin-bottom: 10px;
+}
+
+.compact-skill-section .skill-subtitle {
+  margin-top: 0;
 }
 
 .section-panel .section-heading h1 {
