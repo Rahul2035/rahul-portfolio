@@ -80,13 +80,16 @@ a {
   padding: 10px 14px;
   border-radius: 999px;
   color: var(--muted);
-  transition: 0.25s ease;
+  font-weight: 500;
 }
 
-.site-nav a.active,
 .site-nav a:hover {
-  background: var(--red-soft);
   color: var(--text);
+}
+
+.site-nav a.active {
+  color: var(--text);
+  font-weight: 800;
 }
 
 .page-shell {
@@ -201,8 +204,9 @@ a {
 }
 
 .primary-link {
-  background: linear-gradient(135deg, #ff304f, #ff6b35);
-  color: white;
+  background: #ffffff;
+  color: #2563eb;
+  border: 1px solid rgba(15, 23, 42, 0.12);
   box-shadow: none;
 }
 
