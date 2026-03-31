@@ -1,9 +1,16 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { certifications, projects } from "../content";
-import { TransitionLink } from "../components/TransitionLink";
 
 const Missions = () => {
   return (
-    <main className="page-shell">
+    <motion.main
+      className="page-shell"
+      initial={{ opacity: 0, x: 40 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -40 }}
+      transition={{ duration: 0.45 }}
+    >
       <section className="section-panel">
         <div className="section-heading">
           <p className="eyebrow">Project</p>
@@ -47,15 +54,15 @@ const Missions = () => {
         </article>
 
         <div className="section-actions">
-          <TransitionLink className="ghost-link" to="/superpowers">
+          <Link className="ghost-link" to="/superpowers">
             Back to Skills
-          </TransitionLink>
-          <TransitionLink className="primary-link" to="/contact">
+          </Link>
+          <Link className="primary-link" to="/contact">
             Hire Me
-          </TransitionLink>
+          </Link>
         </div>
       </section>
-    </main>
+    </motion.main>
   );
 };
 

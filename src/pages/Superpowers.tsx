@@ -1,5 +1,6 @@
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { internships, profile, skillGroups } from "../content";
-import { TransitionLink } from "../components/TransitionLink";
 
 const Superpowers = () => {
   const primarySkillGroups = skillGroups.slice(0, 3);
@@ -9,7 +10,13 @@ const Superpowers = () => {
   );
 
   return (
-    <main className="page-shell">
+    <motion.main
+      className="page-shell"
+      initial={{ opacity: 0, x: 40 }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: -40 }}
+      transition={{ duration: 0.45 }}
+    >
       <section className="section-panel">
         <div className="section-heading">
           <p className="eyebrow">Skill</p>
@@ -91,12 +98,12 @@ const Superpowers = () => {
         </div>
 
         <div className="section-actions">
-          <TransitionLink className="primary-link" to="/missions">
+          <Link className="primary-link" to="/missions">
             Explore Project
-          </TransitionLink>
+          </Link>
         </div>
       </section>
-    </main>
+    </motion.main>
   );
 };
 
