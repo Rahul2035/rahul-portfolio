@@ -1,16 +1,9 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { certifications, projects } from "../content";
 
 const Missions = () => {
   return (
-    <motion.main
-      className="page-shell"
-      initial={{ opacity: 0, x: 18 }}
-      animate={{ opacity: 1, x: 0 }}
-      exit={{ opacity: 0, x: -18 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-    >
+    <main className="page-shell">
       <section className="section-panel">
         <div className="section-heading">
           <p className="eyebrow">Project</p>
@@ -62,7 +55,7 @@ const Missions = () => {
           </Link>
         </div>
       </section>
-    </motion.main>
+    </main>
   );
 };
 

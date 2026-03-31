@@ -1,16 +1,9 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { profile, projects, skillGroups } from "../content";
 
 const Home = () => {
   return (
-    <motion.main
-      className="page-shell"
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -18 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-    >
+    <main className="page-shell">
       <section className="hero-panel">
         <div className="hero-copy">
           <h1>{profile.name}</h1>
@@ -55,7 +48,7 @@ const Home = () => {
           </ul>
         </div>
       </section>
-    </motion.main>
+    </main>
   );
 };
 

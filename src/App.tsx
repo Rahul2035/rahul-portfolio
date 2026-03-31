@@ -6,7 +6,6 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 import Home from "./pages/Home";
 import Superpowers from "./pages/Superpowers";
 import Missions from "./pages/Missions";
@@ -46,14 +45,12 @@ function AnimatedRoutes() {
   const location = useLocation();
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/superpowers" element={<Superpowers />} />
-        <Route path="/missions" element={<Missions />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </AnimatePresence>
+    <Routes location={location}>
+      <Route path="/" element={<Home />} />
+      <Route path="/superpowers" element={<Superpowers />} />
+      <Route path="/missions" element={<Missions />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
   );
 }
 
